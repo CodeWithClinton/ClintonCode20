@@ -19,7 +19,7 @@
     display: flex;
     align-items: center;
     font-size: 20px;
-    justify-content: center;
+    justify-content: space-around;
     cursor: pointer;
   }
   #updateCart {
@@ -52,6 +52,11 @@
   .alert{
       display: none;
   }
+  
+  .seen{
+    display: none;
+  }
+
 </style>
 <div class="alert alert-primary" id = 'alert' role="alert">
   {{product.name}} added to your saved list
@@ -78,6 +83,11 @@
           <div class="row">
             <div class="col-10"><h4><strong>{{product.name}}</strong></h4></div>
             <div class="col-2">
+
+              <div class="spinner-border seen" id = 'spinner' role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+
                 <form method='POST' id = 'form' data-id={{product.id}}>
                 {% csrf_token %}
                 {% if saveitem %}
@@ -103,7 +113,11 @@
 
           <!-- {% else %} -->
           <div id="addToCart" data-id="{{product.id}}" data-action="add">
-            Add To Cart
+            <h4 style = 'font-weight: 50px'>Add To Cart</h4>
+            <div class="spinner-border seen" id = 'spinner' role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            
           </div>
 
           <div id="updateCart">
@@ -215,6 +229,7 @@
       document.getElementById('alertdanger').style.display = 'flex'
       document.getElementById('removeItem').innerText = 'You need to be signed in'
     }
+    document.getElementById('spinner').style.display = 'block'
     console.log(e.target)
     counter++;
     product_id = e.target.dataset.id
@@ -247,6 +262,7 @@
             document.getElementById('alert').style.display = 'flex'
             document.getElementById('alertdanger').style.display = 'none'
             heartIcon.setAttribute("class","bi bi-heart-fill" )
+            document.getElementById('spinner').style.display = 'none'
             
             
         }
@@ -256,6 +272,7 @@
             document.getElementById('alertdanger').style.display = 'flex'
             document.getElementById('alert').style.display = 'none'
             heartIcon.setAttribute("class","bi bi-heart" )
+            document.getElementById('spinner').style.display = 'none'
             
             
             

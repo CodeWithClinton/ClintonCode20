@@ -14,6 +14,7 @@ function addToCart(e){
     let action = e.target.dataset.action
     // addBtn.style.display='None'
     // updateBtn.style.display = 'flex'
+    document.getElementById('spinner').style.display = 'block'
     console.log(action)
     console.log(product_id)
 
@@ -60,6 +61,7 @@ function addUserItem(product_id, action){
     // alertbox.style.cssText = 'display:flex !important'
     // alertmsg.innerText = 'Item added to cart'
     qty.innerText = data.num_of_items
+    document.getElementById('spinner').style.display = 'none'
     
     })
 
