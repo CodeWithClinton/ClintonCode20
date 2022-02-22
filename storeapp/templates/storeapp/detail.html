@@ -84,7 +84,7 @@
             <div class="col-10"><h4><strong>{{product.name}}</strong></h4></div>
             <div class="col-2">
 
-              <div class="spinner-border seen" id = 'spinner' role="status">
+              <div class="spinner-border text-info seen" id="heartSpinner" role="status">
                 <span class="visually-hidden">Loading...</span>
               </div>
 
@@ -223,13 +223,15 @@
  
   form.addEventListener("submit", function(e) {
     e.preventDefault()
+    document.getElementById('heartSpinner').style.display = 'block'
     if(user=='AnonymousUser'){
       console.log('nsnsnsnsn')
       
       document.getElementById('alertdanger').style.display = 'flex'
       document.getElementById('removeItem').innerText = 'You need to be signed in'
+      document.getElementById('heartSpinner').style.display = 'none'
     }
-    document.getElementById('spinner').style.display = 'block'
+    
     console.log(e.target)
     counter++;
     product_id = e.target.dataset.id
@@ -262,7 +264,7 @@
             document.getElementById('alert').style.display = 'flex'
             document.getElementById('alertdanger').style.display = 'none'
             heartIcon.setAttribute("class","bi bi-heart-fill" )
-            document.getElementById('spinner').style.display = 'none'
+            document.getElementById('heartSpinner').style.display = 'none'
             
             
         }
@@ -272,7 +274,7 @@
             document.getElementById('alertdanger').style.display = 'flex'
             document.getElementById('alert').style.display = 'none'
             heartIcon.setAttribute("class","bi bi-heart" )
-            document.getElementById('spinner').style.display = 'none'
+            document.getElementById('heartSpinner').style.display = 'none'
             
             
             

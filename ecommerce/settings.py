@@ -21,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#6@)=)@6=j1cnf$l4^*#f7$4bq5ep!!x4&@rv(uzx=rp#0u73$'
+SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'my-shoppit.herokuapp.com']
 
@@ -98,16 +98,19 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 #     }
 # }
 
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ecommerce',
-        'USER': 'postgres',
-        'PASSWORD': 'database',
-        'HOST': 'database-ecommerce.ce7yb1guuyaz.us-east-2.rds.amazonaws.com',
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST':  os.environ.get('DB_HOST'),
         'PORT': '5432'
     }
 }
+
 
 
 # Password validation
@@ -158,9 +161,14 @@ MEDIA_ROOT = BASE_DIR/'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'core.User'
 
+
+
+
+
 AWS_QUERYSTRING_AUTH = False
 AWS_S3_FILE_OVERWRITE = False
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID  = 'AKIA3RM5M75WG2RY7UDH'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID  = os.environ.get('AWS_ACCESS_KEY')
+AWS_SECRET_ACCESS_KEY =  os.environ.get('AWS_SECRET_KEY')
 AWS_STORAGE_BUCKET_NAME = 'shopit-bucket'
+
