@@ -76,7 +76,7 @@ def cart(request):
 
 def updateCart(request):
     data = json.loads(request.body)
-    pro_id = data['id']
+    pro_id = data['p_id']
     action = data['action']
     product = Product.objects.get(id=pro_id)
     

@@ -112,13 +112,21 @@
           <!-- {% if product.cartitems.quantity > 0 %} -->
 
           <!-- {% else %} -->
-          <div id="addToCart" data-id="{{product.id}}" data-action="add">
+          {% comment %} <button id="addToCart" data-id="{{product.id}}" data-action="add">
             <h4 style = 'font-weight: 50px'>Add To Cart</h4>
             <div class="spinner-border seen" id = 'spinner' role="status">
               <span class="visually-hidden">Loading...</span>
             </div>
             
-          </div>
+          </button> {% endcomment %}
+          <button id="addToCart" data-id="{{product.id}}" data-action="add" class = 'btn btn-primary-lg'>
+            Add To Cart
+            <div class="spinner-border seen" id = 'spinner' role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+           
+            
+          </button>
 
           <div id="updateCart">
             <div id="substract"><i class="bi bi-dash-lg"></i></div>

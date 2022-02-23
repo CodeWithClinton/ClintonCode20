@@ -7,16 +7,20 @@ let alertmsg = document.getElementById('alertmsg')
 let addBtn = document.getElementById('addToCart')
 let updateBtn = document.getElementById('updateCart')
 
-addBtn.addEventListener('click', addToCart)
+addBtn.addEventListener('click', addToCart, {capture:true})
 
 function addToCart(e){
-    let product_id = e.target.dataset.id
-    let action = e.target.dataset.action
+  e.stopPropagation()
+  console.log(e.target)
+
+    let product_id = addBtn.dataset.id
+    let action = addBtn.dataset.action
     // addBtn.style.display='None'
     // updateBtn.style.display = 'flex'
+   
     document.getElementById('spinner').style.display = 'block'
-    console.log(action)
-    console.log(product_id)
+    // console.log(action)
+    // console.log(product_id)
 
 
 
@@ -45,7 +49,7 @@ function addUserItem(product_id, action){
     
     let url = "/updatecart"
 
-    const data = { id: product_id, action:action};
+    const data = {p_id: product_id, action:action};
 
     fetch(url, {
     method: 'POST', // or 'PUT'
