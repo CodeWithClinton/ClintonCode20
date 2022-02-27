@@ -1,4 +1,4 @@
-# shoppit
+# Shoppit
 A complete ecommerce website which consists of user profiles and other modern features of an ecommerce website.
 
 ### Hi there 👋, I am Nwachukwu Clinton
@@ -12,7 +12,7 @@ ___________________________________________
 - HTML
 - CSS
 - JAVASCRIPT
-- Bootstrap
+- BOOTSTRAP
 - DJANGO
 _____________________________________________
 
