@@ -17,11 +17,11 @@ from django.db.models import Q
 
 
 def index(request):
-    try:
-        cart = Cart.objects.get(session_id = request.session['nonuser'], completed=False)
-    except:
-        request.session['nonuser'] = str(uuid.uuid4())
-        cart = Cart.objects.create(session_id = request.session['nonuser'], completed=False)
+    # try:
+    #     cart = Cart.objects.get(session_id = request.session['nonuser'], completed=False)
+    # except:
+    #     request.session['nonuser'] = str(uuid.uuid4())
+    #     cart = Cart.objects.create(session_id = request.session['nonuser'], completed=False)
         
     top_deal = Product.objects.filter(discount=True)
     categories = Category.objects.all()

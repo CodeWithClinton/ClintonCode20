@@ -90,10 +90,17 @@
 
                 <form method='POST' id = 'form' data-id={{product.id}}>
                 {% csrf_token %}
+                
                 {% if saveitem %}
+                {% if request.user.is_authenticated %}
               <button id = 'heartContainer' type = 'submit' style = 'background: none; border: none' >
                 <i class="bi bi-heart-fill" style = "font-size: 30px;" id = 'heart' data-id={{product.id}}></i>
               </button>
+              {% else %}
+              <button id = 'heartContainer' type = 'submit' style = 'background: none; border: none' >
+                <i class="bi bi-heart" style = "font-size: 30px;" id = 'heart' data-id={{product.id}}></i>
+              </button>
+              {% endif %}
               {% else %}
               <button id = 'heartContainer' type = 'submit' style = 'background: none; border: none' >
                 <i class="bi bi-heart" style = "font-size: 30px;" id = 'heart' data-id={{product.id}}></i>
