@@ -26,7 +26,7 @@ def index(request):
     top_deal = Product.objects.filter(discount=True)
     categories = Category.objects.all()
     products = Product.objects.all()
-    context = {'top_deals': top_deal, 'categories':categories, 'cart':cart, 'products':products }
+    context = {'top_deals': top_deal, 'categories':categories, 'products':products }
     
     return render(request, 'storeapp/index.html', context)
 
