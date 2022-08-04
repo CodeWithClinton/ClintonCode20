@@ -23,7 +23,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
     discount = models. BooleanField(default=False)
-    image = models.ImageField(upload_to = 'img', default="default.png", blank = True, null=True)
+    image = models.ImageField(upload_to = 'img', default="default.png", blank=True, null=True)
     old_price = models.FloatField(default=100.00)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True, related_name='products')
     slug = models.SlugField(default=None)
