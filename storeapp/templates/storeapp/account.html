@@ -26,15 +26,14 @@
 
     <div
       class="col-12 col-sm-12 col-lg-9 col-xl-9"
-      style="border: 1px solid lightgray"
-    >
+      style="border: 2px solid rgb(206, 212, 218); padding:10px 10px 10px 10px">
       <div class="row">
-        <div class="col-12 col-sm-12 col-lg-6 col-xl-6" style="border: 0.5px solid lightgray">
+        <div class="col-12 col-sm-12 col-lg-6 col-xl-6" style="border-right: 2px solid rgb(206, 212, 218)">
           <div class="row">
-            <div class="col-10" style="border: 1px solid lightgray">
+            <div class="col-10">
               <h5>ACCOUNT INFORMATION</h5>
             </div>
-            <div class="col-2" style="border: 1px solid lightgray">
+            <div class="col-2">
               <a href = " {% url 'updateaccount' %} ">
               <button class= "nbtn" ><i class="bi bi-pen"></i></button>
             </a>
@@ -48,14 +47,16 @@
           </div>
         </div>
 
-        <div class="col-12 col-sm-12 col-lg-6 col-xl-6" style="border: 1px solid lightgray">
+        <div class="col-12 col-sm-12 col-lg-6 col-xl-6">
           <div class="row">
-            <div class="col-10" style="border: 1px solid lightgray">
+            <div class="col-10">
               <h5>ADDRESS BOOK</h5>
             </div>
-            <div class="col-2" style="border: 1px solid lightgray">
+            <div class="col-2">
+              {% if myaddress %}
                 <a href = " {% url 'changeaddress' %} ">
               <button class= "nbtn"><i class="bi bi-pen"></i></button></a>
+              {% endif %}
             </div>
           </div>
           <div class="row">

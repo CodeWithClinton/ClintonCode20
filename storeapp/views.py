@@ -160,7 +160,11 @@ def checkout(request):
 def account(request):
     customer = request.user.customer
     address = Address.objects.filter(customer=customer)
-    context = {'customer': customer, 'address':address}
+    try:
+        cus_address = Address.objects.get(customer=customer)
+    except:
+        cus_address = None
+    context = {'customer': customer, 'address':address, 'myaddress': cus_address}
     return render(request, 'storeapp/account.html', context)
 
 @login_required(login_url='signin')

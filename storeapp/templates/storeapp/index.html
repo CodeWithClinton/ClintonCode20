@@ -24,6 +24,10 @@
   }
 </style>
 
+
+
+
+
 <div class="container">
   <div class="row">
     <div class="col-12 col-sm-12 col-lg-3 col-xl-3">
@@ -111,7 +115,7 @@
     {% endfor %}
   </div>
 
-  <div class="row">
+  {% comment %} <div class="row">
     
     <h3 style="margin-top: 30px">Top Categories</h3>
   </div>
@@ -132,7 +136,7 @@
       </a>
     </div>
     {% endfor %}
-  </div>
+  </div> {% endcomment %}
 
   <div class="row justify-content-center">
     <h3>Available Products</h3>
@@ -141,17 +145,15 @@
     {% for product in products %}
     <div class="col-12 col-sm-6 col-lg-2 col-xl-2">
       <a href="{% url 'detail' product.slug %}">
-        <div class="card position-relative" style="width: 100%">
-          <!-- <span class="discount"> -30% </span> -->
+       <div class="card position-relative" style="width: 100%">
           <img src="{{product.image.url}}" class="card-img-top" alt="no image" />
           <div class="card-body">
             <p class="card-title">{{product.name}}</p>
             <h4 class="card-text">${{ product.price|floatformat:2 }}</h4>
-            <!-- <h6 class="card-text" style="text-decoration: line-through">
-              ${{product.old_price|floatformat:2}}
-            </h6> -->
+          
           </div>
-        </div>
+        </div> 
+      
       </a>
     </div>
     {% endfor %}
