@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'my-shoppit.herokuapp.com']
 
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'storeapp',
     'core',
     'UserProfile',
-    'storages'
+    # 'storages'
 ]
 
 MIDDLEWARE = [
@@ -100,16 +100,30 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'ecommerce',
+#         'USER': os.environ.get('DB_USER'),
+#         'PASSWORD': os.environ.get('DB_PASS'),
+#         'HOST':  os.environ.get('DB_HOST'),
+#         'PORT': '5432'
+#     }
+# }
+
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ecommerce',
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
-        'HOST':  os.environ.get('DB_HOST'),
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'Osj7K0CSEJvJEeMeUjpP',
+        'HOST': 'containers-us-west-42.railway.app',
+        'PORT': '7003'
     }
 }
+
 
 
 
@@ -165,10 +179,10 @@ AUTH_USER_MODEL = 'core.User'
 
 
 
-AWS_QUERYSTRING_AUTH = False
-AWS_S3_FILE_OVERWRITE = False
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID  = os.environ.get('AWS_ACCESS_KEY')
-AWS_SECRET_ACCESS_KEY =  os.environ.get('AWS_SECRET_KEY')
-AWS_STORAGE_BUCKET_NAME = 'shopit-bucket'
+# AWS_QUERYSTRING_AUTH = False
+# AWS_S3_FILE_OVERWRITE = False
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_ACCESS_KEY_ID  = os.environ.get('AWS_ACCESS_KEY')
+# AWS_SECRET_ACCESS_KEY =  os.environ.get('AWS_SECRET_KEY')
+# AWS_STORAGE_BUCKET_NAME = 'shopit-bucket'
 
