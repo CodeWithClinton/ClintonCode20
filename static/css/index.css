@@ -1,0 +1,106 @@
+.card-container{
+    width: 90%;
+    height: auto;
+    /* border: 2px solid rgb(206, 212, 218); */
+    margin: auto;
+    margin-top: 50px;
+}
+
+.card-container .card-header{
+    font-size: 20px;
+    background-color: #000080;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.sub-card-container{
+    width: 100%;
+    height:auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+.sub-card-container .card{
+    height: 300px;
+    box-shadow: 7px 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.sub-card-container .card .cimg{
+    width: 100%;
+    height: 200px;
+    /* border: 1px solid black; */
+}
+
+.sub-card-container .card .cimg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sub-card-container .card .card-footer{
+    width: 100%;
+    height: 100px;
+    /* border: 1px solid black; */
+}
+
+
+.top-deals-container {
+    width: 90%;
+    height: auto;
+    /* border: 2px solid rgb(206, 212, 218); */
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.top-deals-container .card-header{
+    background-color: #000080;
+    font-size: 20px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+
+.top-deals-container .sub-deals-container{
+    width: 100%;
+    height:auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    /* border: 1px solid black; */
+}
+
+.top-deals-container .sub-deals-container .img{
+
+    height: 150px;
+    box-shadow: 7px 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid blue; */
+}
+/* 
+.top-deals-container .sub-deals-container .img .sub-img{
+
+    width: 200px;
+    height: 200px;
+    border: 2px solid green;
+} */
+.top-deals-container .sub-deals-container .img .sub-img{
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid black; */
+}
+
+.top-deals-container .sub-deals-container .img .sub-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

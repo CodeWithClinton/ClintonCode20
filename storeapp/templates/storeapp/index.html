@@ -1,17 +1,21 @@
 {% extends 'storeapp/base.html' %}
 <!-- Header-->
 {% load static %} {% block content %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet" />
+<link href="{% static 'fontawesome/css/all.css' %}" rel="stylesheet" />
 <style>
   .discount {
     width: 50px;
     height: 25px;
-    background-color: #f0f8ff;
+    background-color: #3F00FF;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     right: 0px;
     border-radius: 15px;
+    top: 0px;
+    color: white;
   }
  
   i {
@@ -29,6 +33,9 @@
 
 
 <div class="container">
+
+  <i class="fa-solid fa-bowl-food"></i>
+
   <div class="row">
     <div class="col-12 col-sm-12 col-lg-3 col-xl-3">
       <ul class="list-group">
@@ -38,9 +45,9 @@
             class="list-group-item d-flex justify-content-between align-items-center"
           >
             {{category.title}}
-            <span class="badge bg-light rounded-pill"
-              ><i class="{{category.icon}}"></i>
-            ></span>
+            <span class="badge bg-light rounded-pill">
+              <i class="{{category.icon}}"></i>
+            </span>
           </li>
         </a>
         {% endfor %}
@@ -91,74 +98,63 @@
     </div>
   </div>
 
-  <div class="row justify-content-center">
-    <br>
-    <h3 style="margin-top: 30px">Top Deals</h3>
-  </div>
-  <div class="row justify-content-center" style="margin-bottom:10px">
-    {% for product in top_deals %}
-    <div class="col-12 col-sm-6 col-lg-2 col-xl-2" style="margin-bottom:10px">
-      <a href="{% url 'detail' product.slug %}">
-        <div class="card position-relative" style="width: 100%">
-          <span class="discount"> -30% </span>
-          <img src="{{product.image.url}}" class="card-img-top" alt="{% static 'img/default.png' %}" />
-          <div class="card-body">
-            <p class="card-title">{{product.name}}</p>
-            <h4 class="card-text">${{ product.price|floatformat:2 }}</h4>
-            <h6 class="card-text" style="text-decoration: line-through">
-              ${{product.old_price|floatformat:2}}
-            </h6>
-          </div>
-        </div>
-      </a>
-    </div>
-    {% endfor %}
-  </div>
+  
+ 
 
-  {% comment %} <div class="row">
-    
-    <h3 style="margin-top: 30px">Top Categories</h3>
-  </div>
-  <div class="row justify-content-center">
-    {% for category in categories %}
-    <div class="col-12 col-sm-6 col-lg-2 col-xl-2">
-      <a href = "{% url 'category' category.slug %}">
-      <div class="card" style="width: 100%">
-        <img
-          src="{{category.featured_product.image.url}}"
-          class="card-img-top"
-          alt="no image"
-        />
-        <div class="card-body">
-          <p class="card-title">{{category.title}}</p>
-        </div>
-      </div>
-      </a>
-    </div>
-    {% endfor %}
-  </div> {% endcomment %}
-
-  <div class="row justify-content-center">
-    <h3>Available Products</h3>
-  </div>
-  <div class="row justify-content-center">
-    {% for product in products %}
-    <div class="col-12 col-sm-6 col-lg-2 col-xl-2">
-      <a href="{% url 'detail' product.slug %}">
-       <div class="card position-relative" style="width: 100%">
-          <img src="{{product.image.url}}" class="card-img-top" alt="no image" />
-          <div class="card-body">
-            <p class="card-title">{{product.name}}</p>
-            <h4 class="card-text">${{ product.price|floatformat:2 }}</h4>
-          
-          </div>
-        </div> 
-      
-      </a>
-    </div>
-    {% endfor %}
-  </div>
+  
 
 </div>
+
+
+
+<div class="top-deals-container">
+  <div class="card-header">Top Deals</div>
+  <div class="sub-deals-container">
+
+    {% for product in top_deals %}
+    <a href="{% url 'detail' product.slug %}">
+    <div class="img" style="position:relative">
+      <span class="discount"> -30% </span>
+
+      <div class="sub-img">
+        <img src="{{product.image_url.url}}" alt="">
+       </div>
+       
+    </div>
+  </a>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+
+<div class="card-container">
+  <div class="card-header">Available Products</div>
+  <div class="sub-card-container">
+
+    {% for product in products %}
+    <a href="{% url 'detail' product.slug %}">
+    <div class="card">
+      <div class="cimg">
+        {% comment %} <img src="{{product.image_url}}" alt=""> {% endcomment %}
+        <img src="{{product.image_url.url}}" alt="">
+      </div>
+      <div class="card-footer">
+        <h5 class="card-title">{{product.name}}</h5>
+            <h4 class="card-text">${{ product.price|floatformat:2 }}</h4>
+      </div>
+      
+    </div>
+  </a>
+    {% endfor %}
+
+  
+
+  </div>
+</div>
+
+
+
 
 {% endblock %}

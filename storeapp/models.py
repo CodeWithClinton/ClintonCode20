@@ -41,6 +41,13 @@ class Product(models.Model):
             new_price = self.old_price
         return new_price
 
+    @property
+    def image_url(self):
+        if self.image == "":
+            self.image = ''
+        return self.image
+    
+
     def __str__(self):
         return self.name
 
