@@ -129,7 +129,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'shoppit',
-        'USER': 'postgres',
+        'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASS'),
         'HOST': os.environ.get('S_DB_HOST'),
         'PORT': '5432'
