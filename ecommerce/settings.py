@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('AWS_SECRET_KEY')
+SECRET_KEY = 'django-insecure-9sf_a_!a%=i-7c*p!d*0i7jqsdyd8y3-v%o*pl54!@9flk(n_^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'storeapp',
     'core',
     'UserProfile',
-    # 'storages'
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -113,14 +113,26 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Osj7K0CSEJvJEeMeUjpP',
+#         'HOST': 'containers-us-west-42.railway.app',
+#         'PORT': '7003'
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
+        'NAME': 'shoppit',
         'USER': 'postgres',
-        'PASSWORD': 'Osj7K0CSEJvJEeMeUjpP',
-        'HOST': 'containers-us-west-42.railway.app',
-        'PORT': '7003'
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST': os.environ.get('S_DB_HOST'),
+        'PORT': '5432'
     }
 }
 
@@ -175,6 +187,29 @@ MEDIA_ROOT = BASE_DIR/'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'core.User'
 
+
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# AWS_ACCESS_KEY_ID = 'AKIA2MLCKLBPMNA35LDW'
+
+# AWS_SECRET_ACCESS_KEY = '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'
+
+# AWS_STORAGE_BUCKET_NAME = 'clintonmatics-bucket'
+
+# AWS_QUERYSTRING_AUTH = False
+
+# AWS_S3_FILE_OVERWRITE = False
+
+
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = os.environ.get('S_AWS_ACCESS_KEY')
+AWS_SECRET_ACCESS_KEY = os.environ.get('S_AWS_SECRET_KEY')
+AWS_STORAGE_BUCKET_NAME = 'clintonmatics-bucket'
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_FILE_OVERWRITE = False
 
 
 
