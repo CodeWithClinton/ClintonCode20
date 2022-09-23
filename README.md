@@ -5,7 +5,7 @@ A complete ecommerce website which consists of user profiles and other modern fe
 __________________________________________
 
 ### **PROFESSION**
-#### I am a Fullstack Web Developer and content creator on [Youtube](https://www.youtube.com/c/CodeWithClinton/videos).
+### I am a Fullstack Web Developer and content creator on [Youtube](https://www.youtube.com/c/CodeWithClinton/videos).
 ___________________________________________
 
 ### **THE STACKS I KNOW**
